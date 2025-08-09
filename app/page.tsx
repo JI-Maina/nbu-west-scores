@@ -1,12 +1,10 @@
 import { getFixtureByID } from "@/data/get-fixtures";
-
 import FixtureCard from "./fixture-card";
-;
 
 export default async function Home() {
   const [womenData, countyData, regionData] = await Promise.all([
     getFixtureByID(8534),
-    getFixtureByID(8535),
+    getFixtureByID(8544),
     getFixtureByID(8536),
   ]);
 

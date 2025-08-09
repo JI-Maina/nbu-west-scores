@@ -5,14 +5,20 @@ const token = process.env.NEXT_PUBLIC_TOKEN;
 const baseURL = process.env.NEXT_PUBLIC_API_HOST;
 
 // fetch season fixtures
-export const getFixtureByID = async (id: number): Promise<SingleFixtureStats> => {
-  const res = await fetch(`https://apis.tisini.co.ke/apiagent7.php?event=${id}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    next: { revalidate: 60 },
-  });
+export const getFixtureByID = async (
+  id: number
+): Promise<SingleFixtureStats> => {
+  const res = await fetch(
+    `https://apis.tisini.co.ke/apiagent7.php?event=${id}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cache: "no-store",
+      // next: { revalidate: 60 },
+    }
+  );
 
   if (!res.ok) throw new Error("Failed to fetch fixture");
 
