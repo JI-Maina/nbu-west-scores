@@ -1,5 +1,6 @@
 "use client"
 
+import FootballStats from "@/components/stats";
 import { SingleFixtureStats } from "@/types/scores";
 import React, { useState } from "react";
 
@@ -21,7 +22,7 @@ const FixtureCard = ({ data }: { data: SingleFixtureStats }) => {
             <span>{fixture.matchday}</span>
           </div>
           <button
-            className="text-primary text-sm hover:underline hidden"
+            className="text-primary text-sm hover:underline"
             onClick={() => setShowDetails((prev) => !prev)}
           >
             {showDetails ? "Hide Details ▲" : "View Details ▼"}
@@ -88,16 +89,11 @@ const FixtureCard = ({ data }: { data: SingleFixtureStats }) => {
       </div>
 
       {/* Match Details Toggle Section */}
-      {/* {showDetails && (
-        <div className="px-4 py-3 text-sm bg-gray-50 border-t text-gray-700">
-          <div><strong>Referee:</strong> {fixture.game_date || "N/A"}</div>
-          <div><strong>Stadium:</strong> {fixture.id || "N/A"}</div>
-          <div><strong>Date:</strong> {fixture.game_date}</div>
-          <div><strong>Status:</strong> {fixture.game_status}</div>
-          <div><strong>Minute:</strong> {fixture.minute || "N/A"}</div>
-          
+      {showDetails && (
+        <div className="px-6 py-3 text-sm bg-gray-50 border-t text-gray-700">
+          <FootballStats home={data.home} away={data.away} cards={data.cards} fouls={data.fouls}  />
         </div>
-      )} */}
+      )}
     </div>
   );
 };
