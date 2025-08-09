@@ -11,7 +11,7 @@ export default async function Home() {
   ]);
 
   return (
-    <main className="my-4 space-y-6 max-w-5xl mx-auto">
+    <main className="my-4 space-y-6 max-w-5xl mx-auto p-2">
       <FixtureCard data={womenData} />
       <FixtureCard data={countyData} />
       <FixtureCard data={regionData} />
